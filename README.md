@@ -14,7 +14,7 @@
 
 **AutoAid is a roadside-assistance app.** When a car breaks down, the driver sends a request from their phone; nearby, verified providers (tow trucks, mechanics, roadside helpers) see it, one accepts, and the driver follows the provider live on a map, chats with them, pays, and leaves a rating.
 
-It started as a graduation project at the Faculty of Computers and Information Systems, Sadat Academy (2023-2024), where the analysis and design were done (use cases, class diagram, ERD, sequence and activity diagrams). This repository is a working implementation of that design with **Flutter**, **Firebase** and **OpenStreetMap**.
+It started as a graduation project at the Faculty of Computers and Information Systems, Sadat Academy (2023-2024), where the analysis and design were done (use cases, class diagram, ERD, sequence and activity diagrams).
 
 ## Contents
 
