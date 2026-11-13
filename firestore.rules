@@ -1,0 +1,118 @@
+rules_version = '2';
+
+// AutoAid Firestore security rules.
+//
+// NOTE: this is a client-only app (no Cloud Functions), so a few rules are
+// intentionally loose (e.g. any signed-in user may update a provider's rating
+// fields). For production, move rating updates and request dispatching to
+// Cloud Functions and tighten these rules.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid)).data;
+    }
+
+    function isAdmin() {
+      return signedIn() && userDoc(request.auth.uid).role == 'admin';
+    }
+
+    function isVerifiedProvider() {
+      return signedIn()
+        && userDoc(request.auth.uid).role == 'provider'
+        && userDoc(request.auth.uid).verified == true;
+    }
+
+    function changedKeys() {
+      return request.resource.data.diff(resource.data).affectedKeys();
+    }
+
+    // ------------------------------------------------------------- users
+    match /users/{uid} {
+      allow read: if signedIn();
+
+      // New accounts can only be customers or (unverified) providers.
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.role in ['customer', 'provider']
+        && request.resource.data.verified == false
+        && request.resource.data.rating == 0
+        && request.resource.data.ratingCount == 0;
+
+      allow update: if signedIn() && (
+        // admins can verify providers
+        (isAdmin() && changedKeys().hasOnly(['verified']))
+        // owners can change their profile and availability, but not role,
+        // verification or rating
+        || (request.auth.uid == uid
+            && changedKeys().hasOnly(['name', 'phone', 'available']))
+        // rating is updated by the customer who just rated (see README)
+        || changedKeys().hasOnly(['rating', 'ratingCount'])
+      );
+
+      match /vehicles/{vehicleId} {
+        allow read, write: if signedIn() && request.auth.uid == uid;
+      }
+    }
+
+    // ---------------------------------------------------------- requests
+    match /requests/{requestId} {
+
+      function isParticipant() {
+        return signedIn() && (
+          resource.data.customerId == request.auth.uid
+          || resource.data.providerId == request.auth.uid
+        );
+      }
+
+      // Customers see their own requests, providers see open requests and
+      // their own jobs, admins see everything.
+      allow read: if signedIn() && (
+        isParticipant()
+        || resource.data.status == 'pending'
+        || isAdmin()
+      );
+
+      allow create: if signedIn()
+        && request.resource.data.customerId == request.auth.uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.paid == false;
+
+      allow update: if signedIn() && (
+        // customer: cancel, pay, rate
+        (resource.data.customerId == request.auth.uid
+          && changedKeys().hasOnly(['status', 'paid', 'paymentMethod',
+                                    'rated', 'rating', 'feedback']))
+        // verified, available provider accepts a pending request
+        || (isVerifiedProvider()
+          && resource.data.status == 'pending'
+          && request.resource.data.status == 'accepted'
+          && request.resource.data.providerId == request.auth.uid
+          && changedKeys().hasOnly(['status', 'providerId', 'providerName',
+                                    'providerPhone', 'providerLocation']))
+        // assigned provider updates status and live location
+        || (resource.data.providerId == request.auth.uid
+          && changedKeys().hasOnly(['status', 'providerLocation']))
+      );
+
+      match /messages/{messageId} {
+        function parent() {
+          return get(/databases/$(database)/documents/requests/$(requestId)).data;
+        }
+        function inChat() {
+          return signedIn() && (
+            parent().customerId == request.auth.uid
+            || parent().providerId == request.auth.uid
+          );
+        }
+
+        allow read: if inChat();
+        allow create: if inChat() && request.resource.data.senderId == request.auth.uid;
+      }
+    }
+  }
+}
