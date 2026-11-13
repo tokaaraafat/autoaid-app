@@ -16,6 +16,7 @@ Based on the AutoAid graduation project design (Sadat Academy, Faculty of Comput
 - Cancel a request while it is not completed
 - Pay (cash, or simulated wallet/Visa) and rate the provider
 - **Accident / emergency**: emergency numbers (one-tap call) and an accident report that is sent to providers
+- **Car care guide**: which fluids to check (oil, coolant, brake, power steering, washer, clutch), what to look for and warning signs
 
 **Service provider**
 - Register, then wait for admin verification
@@ -40,18 +41,22 @@ Based on the AutoAid graduation project design (Sadat Academy, Faculty of Comput
 | AutoAid Transactions (services, price) | `serviceTypes` in `lib/core/constants.dart` |
 | EmergencyServices | `emergencyNumbers` in `lib/core/constants.dart` |
 
+## Design
+
+Dark "workshop" theme with a crimson accent and a heart / ECG-line logo (the car as a patient that needs a doctor). The logo and all icons are drawn in code or come from Material Icons, so the repo contains no third-party artwork.
+
 ## Project structure
 
 ```
 lib/
 ├── main.dart                    # Firebase init, providers, AuthGate (routes by role)
 ├── firebase_options.dart        # placeholder, replaced by `flutterfire configure`
-├── core/                        # constants, models, helpers
+├── core/                        # constants, models, theme, helpers
 ├── services/
 │   ├── app_state.dart           # auth + signed-in profile
 │   ├── firestore_service.dart   # all Firestore access
 │   └── location_service.dart    # GPS, distance, ETA
-├── widgets/osm_map.dart         # OpenStreetMap widget
+├── widgets/                     # OpenStreetMap widget, logo (heart + ECG line)
 └── screens/
     ├── auth/  customer/  provider/  admin/  shared/
 firestore.rules                  # security rules
