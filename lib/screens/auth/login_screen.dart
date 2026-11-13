@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/utils.dart';
 import '../../services/app_state.dart';
+import '../../widgets/pulse_header.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -40,7 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -52,10 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    Icon(Icons.car_repair, size: 72, color: scheme.primary),
-                    const SizedBox(height: 8),
-                    Text('AutoAid',
-                        style: Theme.of(context).textTheme.headlineMedium),
+                    const PulseHeader(),
+                    const SizedBox(height: 4),
                     const Text('Roadside help, a few taps away'),
                     const SizedBox(height: 32),
                     TextFormField(

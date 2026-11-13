@@ -131,7 +131,7 @@ class _RequestFormScreenState extends State<RequestFormScreen> {
             ),
             if (_type == 'accident')
               Card(
-                color: Colors.red.shade50,
+                color: const Color(0xFF3A1620),
                 margin: const EdgeInsets.only(top: 12),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
