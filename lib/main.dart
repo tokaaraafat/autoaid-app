@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'core/models.dart';
+import 'core/theme.dart';
 import 'firebase_options.dart';
 import 'screens/admin/admin_screen.dart';
 import 'screens/auth/login_screen.dart';
@@ -37,10 +38,7 @@ class AutoAidApp extends StatelessWidget {
       child: MaterialApp(
         title: 'AutoAid',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorSchemeSeed: const Color(0xFFE65100),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.dark(),
         home: const AuthGate(),
       ),
     );
