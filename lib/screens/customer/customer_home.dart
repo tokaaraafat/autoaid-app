@@ -8,6 +8,7 @@ import '../../services/app_state.dart';
 import '../../services/firestore_service.dart';
 import '../shared/profile_screen.dart';
 import '../shared/request_detail_screen.dart';
+import 'car_care_screen.dart';
 import 'emergency_screen.dart';
 import 'request_form_screen.dart';
 import 'vehicles_screen.dart';
@@ -120,6 +121,18 @@ class _HomeTab extends StatelessWidget {
                 ),
               ),
           ],
+        ),
+        const SizedBox(height: 12),
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.monitor_heart,
+                color: Theme.of(context).colorScheme.primary),
+            title: const Text('Car care guide'),
+            subtitle: const Text('Which fluids to check, and when'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (_) => const CarCareScreen())),
+          ),
         ),
         const SizedBox(height: 16),
         FilledButton.icon(
