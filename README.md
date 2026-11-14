@@ -1,148 +1,404 @@
-# AutoAid - Roadside Assistance App
+# AutoAid -- Roadside Assistance App
 
-A Flutter app that connects drivers whose car broke down with nearby roadside-assistance providers. Built with **Flutter / Dart**, **Firebase** (Authentication + Cloud Firestore) and **OpenStreetMap** (via `flutter_map`).
+**Roadside assistance, just a few taps away.**
 
-Based on the AutoAid graduation project design (Sadat Academy, Faculty of Computers and Information Systems, 2023-2024): use cases, class diagram and ERD.
+AutoAid is a Flutter-based mobile application that connects drivers
+experiencing vehicle breakdowns with nearby roadside-assistance
+providers. Customers can request help, share their location, track
+service progress, communicate with providers, and manage their
+assistance requests through one application.
 
-## Features
+The project is based on the AutoAid graduation project design developed
+at **Sadat Academy for Management Sciences -- Faculty of Computers and
+Information Systems (2023--2024)**, including its use case diagrams,
+class diagram, and Entity Relationship Diagram (ERD).
 
-**Customer**
-- Register / log in, manage profile
-- Save vehicles (model, plate, insurance, registration)
-- Request assistance: towing, flat tire, battery jump-start, fuel delivery, lockout, engine problem
-- Pick the location from GPS or by tapping the OpenStreetMap map
-- Live tracking of the provider on the map, with distance and ETA
-- In-app chat and one-tap call to the provider
-- Cancel a request while it is not completed
-- Pay (cash, or simulated wallet/Visa) and rate the provider
-- **Accident / emergency**: emergency numbers (one-tap call) and an accident report that is sent to providers
+------------------------------------------------------------------------
 
-**Service provider**
-- Register, then wait for admin verification
-- Available / offline switch
-- See open requests within 50 km, nearest first; first provider to accept wins (Firestore transaction)
-- Update the job status (on my way, arrived, completed); live GPS is shared with the customer while the job is active
-- Chat with and call the customer
-- Rating average updates after each review
+## Overview
 
-**Administrator**
-- Verify provider accounts
+When a vehicle breaks down, finding reliable roadside assistance can be
+difficult and time-consuming. AutoAid addresses this problem by
+providing a platform where customers can request specific services and
+connect with nearby providers.
 
-## How it maps to the design documents
+The application supports three main roles:
 
-| Design | In the app |
-|---|---|
-| AutoAidUser, ServiceProvider | `users` collection (`role` = customer / provider / admin) |
-| Vehicle | `users/{uid}/vehicles` |
-| AssistanceRequest | `requests` collection (`status`: pending, accepted, onTheWay, arrived, completed, cancelled) |
-| Communication | `requests/{id}/messages` |
-| Payment | `paid` and `paymentMethod` fields on the request |
-| AutoAid Transactions (services, price) | `serviceTypes` in `lib/core/constants.dart` |
-| EmergencyServices | `emergencyNumbers` in `lib/core/constants.dart` |
+-   **Customers:** Request assistance, manage vehicles, track providers,
+    and communicate with service providers.
+-   **Service Providers:** Receive nearby requests, manage availability,
+    and handle assistance jobs.
+-   **Administrators:** Verify service provider accounts.
 
-## Project structure
+## Key Features
 
-```
+### Customer
+
+-   Register, log in, and manage account details.
+-   Add and manage vehicles, including model, license plate, insurance,
+    and registration information.
+-   Request roadside assistance:
+    -   Towing
+    -   Flat tire assistance
+    -   Battery jump-start
+    -   Fuel delivery
+    -   Vehicle lockout
+    -   Engine problems
+-   Select a service location using GPS or by tapping the map.
+-   Track the assigned provider's live location.
+-   View estimated arrival time and distance.
+-   Communicate through in-app chat or phone calls.
+-   Cancel a request before it is completed.
+-   Select a payment method (cash or simulated wallet/Visa).
+-   Rate providers after service completion.
+-   Access emergency contact numbers and submit accident reports to
+    providers.
+
+### Service Provider
+
+-   Register and wait for administrator verification.
+-   Switch between available and offline modes.
+-   View pending requests within a 50 km radius, ordered by distance.
+-   Accept requests, with the first successful acceptance securing the
+    job.
+-   Update job progress:
+    -   Accepted
+    -   On the way
+    -   Arrived
+    -   Completed
+-   Share live GPS location with customers while a job is active.
+-   Communicate with customers through chat and phone calls.
+-   Maintain an average rating based on customer reviews.
+
+### Administrator
+
+-   Review and verify service provider accounts.
+
+------------------------------------------------------------------------
+
+## Application Workflow
+
+1.  A customer creates an account and adds vehicle information.
+2.  The customer selects an assistance service and specifies a location.
+3.  Nearby available providers can view the pending request.
+4.  The first provider to successfully accept the request becomes
+    responsible for the job.
+5.  The provider updates the service status and shares their live
+    location.
+6.  The customer tracks the provider and communicates through the
+    application.
+7.  After the service is completed, the customer selects a payment
+    method and submits a rating.
+
+------------------------------------------------------------------------
+
+## Technology Stack
+
+  Technology                Purpose
+  ------------------------- -----------------------------------------------
+  Flutter                   Cross-platform mobile application development
+  Dart                      Application programming language
+  Firebase Authentication   User registration and authentication
+  Cloud Firestore           Real-time database and data management
+  OpenStreetMap             Map display and location selection
+  `flutter_map`             OpenStreetMap integration
+  `geolocator`              GPS and location services
+  `provider`                Application state management
+  `url_launcher`            Phone calls and external actions
+
+------------------------------------------------------------------------
+
+## Project Structure
+
+The application uses a modular structure to separate screens, business
+logic, data access, and shared components.
+
+``` text
 lib/
-├── main.dart                    # Firebase init, providers, AuthGate (routes by role)
-├── firebase_options.dart        # placeholder, replaced by `flutterfire configure`
-├── core/                        # constants, models, helpers
+├── main.dart
+├── firebase_options.dart
+├── core/
+│   ├── constants.dart
+│   ├── models/
+│   └── helpers/
 ├── services/
-│   ├── app_state.dart           # auth + signed-in profile
-│   ├── firestore_service.dart   # all Firestore access
-│   └── location_service.dart    # GPS, distance, ETA
-├── widgets/osm_map.dart         # OpenStreetMap widget
+│   ├── app_state.dart
+│   ├── firestore_service.dart
+│   └── location_service.dart
+├── widgets/
+│   └── osm_map.dart
 └── screens/
-    ├── auth/  customer/  provider/  admin/  shared/
-firestore.rules                  # security rules
-test/                            # unit tests
+    ├── auth/
+    ├── customer/
+    ├── provider/
+    ├── admin/
+    └── shared/
+
+firestore.rules
+test/
 ```
 
-## Setup
+### Main Components
 
-You need the [Flutter SDK](https://docs.flutter.dev/get-started/install) and a free [Firebase](https://console.firebase.google.com) project.
+-   **App State:** Handles authentication state and the signed-in user's
+    profile.
+-   **Firestore Service:** Centralizes database operations and
+    communication with Cloud Firestore.
+-   **Location Service:** Handles GPS access, distance calculations, and
+    ETA estimation.
+-   **OSM Map:** Provides map visualization and location selection.
+-   **Auth Gate:** Directs users to the appropriate interface according
+    to their assigned role.
 
-### 1. Generate the platform folders
+------------------------------------------------------------------------
 
-This repo contains the Dart code only. Generate `android/` and `ios/`:
+## Database Design
 
-```bash
+The Firestore structure follows the main entities and relationships
+defined in the original project design.
+
+  Design Entity          Firestore Implementation
+  ---------------------- -------------------------------------------------
+  `AutoAidUser`          `users` collection
+  `ServiceProvider`      `users` collection (`role: provider`)
+  `Vehicle`              `users/{uid}/vehicles`
+  `AssistanceRequest`    `requests` collection
+  `Communication`        `requests/{id}/messages`
+  `Payment`              Payment fields within the request document
+  Service transactions   `serviceTypes` in `lib/core/constants.dart`
+  Emergency services     `emergencyNumbers` in `lib/core/constants.dart`
+
+### Assistance Request Lifecycle
+
+``` text
+Pending
+   |
+   v
+Accepted
+   |
+   v
+On the Way
+   |
+   v
+Arrived
+   |
+   v
+Completed
+```
+
+A request can also be cancelled before completion.
+
+Request acceptance uses a **Firestore transaction** so that only the
+first successful provider acceptance is recorded.
+
+------------------------------------------------------------------------
+
+## Getting Started
+
+Follow these steps to configure and run AutoAid locally.
+
+### Prerequisites
+
+Make sure you have installed:
+
+-   [Flutter SDK](https://docs.flutter.dev/get-started/install)
+-   [Dart SDK](https://dart.dev/get-dart)
+-   [Android Studio](https://developer.android.com/studio) or Visual
+    Studio Code
+-   A [Firebase account](https://console.firebase.google.com/)
+
+### 1. Clone the Repository
+
+``` bash
+git clone https://github.com/tokaaraafat/autoaid-app.git
+cd autoaid-app
+```
+
+### 2. Generate Platform Folders
+
+The repository contains the Dart source code. Generate the Android and
+iOS platform folders:
+
+``` bash
 flutter create . --platforms=android,ios --project-name autoaid --org com.yourname
-rm test/widget_test.dart      # default test created by flutter create
+```
+
+Install the dependencies:
+
+``` bash
 flutter pub get
 ```
 
-### 2. Create the Firebase project
+### 3. Configure Firebase
 
-In the Firebase console:
-1. Create a project.
-2. **Authentication** -> Sign-in method -> enable **Email/Password**.
-3. **Firestore Database** -> Create database.
-4. Open the **Rules** tab and paste the contents of `firestore.rules`, then publish.
+1.  Create a project in the [Firebase
+    Console](https://console.firebase.google.com/).
+2.  Enable **Email/Password** under Authentication → Sign-in method.
+3.  Create a **Cloud Firestore** database.
+4.  Configure Firebase for your target platforms.
 
-Then connect the app:
+Install FlutterFire CLI:
 
-```bash
+``` bash
 dart pub global activate flutterfire_cli
+```
+
+Connect the Flutter application:
+
+``` bash
 flutterfire configure
 ```
 
-This overwrites `lib/firebase_options.dart` with your project's settings.
+This generates `lib/firebase_options.dart` with your Firebase project
+configuration.
 
-### 3. Platform permissions
+### 4. Configure Firestore Security Rules
 
-**Android** - `android/app/src/main/AndroidManifest.xml`, inside `<manifest>` and above `<application>`:
+Open the Firestore **Rules** tab in the Firebase Console, paste the
+contents of the repository's `firestore.rules` file, and publish the
+rules.
 
-```xml
+### 5. Configure Platform Permissions
+
+**Android**
+
+Add the following permissions to
+`android/app/src/main/AndroidManifest.xml`, inside the `<manifest>`
+element and above `<application>`:
+
+``` xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 <queries>
-  <intent>
-    <action android:name="android.intent.action.DIAL"/>
-    <data android:scheme="tel"/>
-  </intent>
+    <intent>
+        <action android:name="android.intent.action.DIAL"/>
+        <data android:scheme="tel"/>
+    </intent>
 </queries>
 ```
 
-Firebase also needs `minSdk` 23 or higher: in `android/app/build.gradle(.kts)` set `minSdk = 23` (or `minSdkVersion 23`).
+Set the minimum Android SDK version to **23 or higher** in the app-level
+Gradle configuration.
 
-**iOS** - `ios/Runner/Info.plist`:
+**iOS**
 
-```xml
+Add the following keys to `ios/Runner/Info.plist`:
+
+``` xml
 <key>NSLocationWhenInUseUsageDescription</key>
-<string>AutoAid needs your location to send help to you.</string>
+<string>AutoAid needs your location to send assistance to you.</string>
+
 <key>LSApplicationQueriesSchemes</key>
-<array><string>tel</string></array>
+<array>
+    <string>tel</string>
+</array>
 ```
 
-### 4. Run
+### 6. Run the Application
 
-```bash
+``` bash
 flutter run
 ```
 
-Run the unit tests with `flutter test`.
+Run the unit tests with:
 
-## Trying it out
+``` bash
+flutter test
+```
 
-1. Create a **customer** account on one device or emulator.
-2. Create a **provider** account on another.
-3. Create an **admin**: sign up with any account, then in the Firestore console open `users/<that user's id>` and change the `role` field to `admin`. Log in with it and verify the provider.
-4. As the customer, request assistance. As the provider, switch to Available, open the request, accept it, and tap "I'm on my way". The customer sees the provider moving on the map.
+------------------------------------------------------------------------
 
-On emulators, set a fake location from the emulator's extended controls (Android) or Features -> Location (iOS simulator).
+## Testing the Application
 
-## Known limitations
+You can test the main workflow using two devices or emulators.
 
-- **Dispatch is client-side.** Providers see nearby requests and the first to accept wins. A production system would use Cloud Functions to choose the nearest provider and send push notifications (not included).
-- **Payments are simulated.** Cash or "wallet/Visa" only records the choice; there is no payment gateway.
-- **Rating updates come from the client.** The security rules allow any signed-in user to change the rating fields. Move this to a Cloud Function before going live.
-- **OpenStreetMap tiles**: the public tile server is for light use only. Switch to a tile provider you have an account with before publishing the app (`lib/widgets/osm_map.dart`).
-- ETA is a straight-line estimate at 40 km/h, not a routed estimate.
-- Emergency numbers are for Egypt; edit `lib/core/constants.dart` for other countries.
-- Package versions in `pubspec.yaml` were chosen without running the app; if `flutter pub get` complains, run `flutter pub upgrade --major-versions` and fix any API changes.
+1.  Create a customer account.
+2.  Create a service provider account on another device.
+3.  Create an administrator account.
+4.  In Firebase Console, open `users/{uid}` for the administrator
+    account and manually change its `role` field to `admin`.
+5.  Log in as the administrator and verify the provider account.
+6.  Log in as the provider and switch the availability status to
+    **Available**.
+7.  Log in as the customer and submit an assistance request.
+8.  Accept the request from the provider account.
+9.  Update the job status and observe the customer's tracking map.
 
-## Tech stack
+**Testing tip:** For location-based functionality, configure simulated
+GPS coordinates through the Android Emulator's Extended Controls or the
+iOS Simulator's Location settings.
 
-Flutter, Dart, Firebase Auth, Cloud Firestore, flutter_map + OpenStreetMap, geolocator, provider, url_launcher.
+------------------------------------------------------------------------
+
+## Current Limitations & Future Improvements
+
+AutoAid demonstrates the core roadside-assistance workflow. Some
+components would require further development before production
+deployment.
+
+  -----------------------------------------------------------------------
+  Area                    Current Implementation  Potential Improvement
+  ----------------------- ----------------------- -----------------------
+  Request dispatching     Providers retrieve      Server-side dispatching
+                          nearby requests and     using Firebase Cloud
+                          compete to accept them  Functions
+
+  Notifications           No dedicated push       Firebase Cloud
+                          notification system     Messaging
+
+  Payments                Cash and simulated      Integration with a
+                          wallet/Visa selection   payment gateway
+
+  Ratings                 Rating fields are       Server-side validation
+                          updated from the client and aggregation
+
+  Maps                    Public OpenStreetMap    Dedicated tile hosting
+                          tile server             or a commercial tile
+                                                  provider
+
+  ETA                     Straight-line estimate  Road-based routing and
+                          at 40 km/h              traffic-aware ETA
+
+  Security                Firestore security      Additional server-side
+                          rules                   validation and
+                                                  authorization
+  -----------------------------------------------------------------------
+
+### Additional Notes
+
+-   Provider dispatch currently relies on client-side request discovery.
+-   Payment methods record the customer's selection; no actual financial
+    transaction takes place.
+-   Emergency contact numbers are configured for Egypt and can be
+    modified in `lib/core/constants.dart`.
+-   The current ETA is an approximation, not a navigation-based
+    estimate.
+-   The public OpenStreetMap tile server is intended for limited use. A
+    suitable tile provider should be configured before a public release.
+
+------------------------------------------------------------------------
+
+## Project Background
+
+AutoAid originated as a graduation project at **Sadat Academy for
+Management Sciences, Faculty of Computers and Information Systems
+(2023--2024)**.
+
+This implementation translates the original system analysis and design
+into a Flutter mobile application, connecting the documented use cases,
+class structure, and database entities to application components.
+
+------------------------------------------------------------------------
+
+## Author
+
+**Toka Raafat**
+
+-   [GitHub](https://github.com/tokaaraafat)
+
+------------------------------------------------------------------------
+
+*AutoAid --- Making roadside assistance more accessible, connected, and
+convenient.*
