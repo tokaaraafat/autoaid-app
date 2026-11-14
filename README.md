@@ -12,28 +12,15 @@
 
 # AutoAid
 
-**AutoAid is a roadside-assistance app.** When a car breaks down, the driver sends a request from their phone; nearby, verified providers (tow trucks, mechanics, roadside helpers) see it, one accepts, and the driver follows the provider live on a map, chats with them, pays, and leaves a rating.
+**Roadside assistance, whenever you need it.** AutoAid is a mobile application built with Flutter and Firebase that connects drivers who need roadside assistance with nearby service providers. Customers can request help, track their service, communicate with providers, and manage their assistance requests through one application.
 
-It started as a graduation project at the Faculty of Computers and Information Systems, Sadat Academy (2023-2024), where the analysis and design were done (use cases, class diagram, ERD, sequence and activity diagrams).
+The project was developed as a graduation project at the Faculty of Computers and Information Systems, Sadat Academy for Management Sciences, during the 2023–2024 academic year.
 
-## Contents
+## Overview
 
-- [The problem](#the-problem)
-- [Screens](#screens)
-- [Features](#features)
-- [How a request works](#how-a-request-works)
-- [Architecture](#architecture)
-- [Data model](#data-model)
-- [Security rules](#security-rules)
-- [Project structure](#project-structure)
-- [Getting started](#getting-started)
-- [Try the full flow](#try-the-full-flow)
-- [Testing](#testing)
-- [Design](#design)
-- [From the design documents to the code](#from-the-design-documents-to-the-code)
-- [Known limitations](#known-limitations)
-- [Roadmap](#roadmap)
-- [Credits](#credits)
+Breaking down on the road can be stressful, especially when finding reliable assistance takes time. AutoAid aims to simplify this experience by connecting customers with nearby verified providers through a location-based request system.
+
+The application supports different roadside assistance services, including towing, flat tire repair, battery jump-starts, fuel delivery, and more.
 
 ## The problem
 
@@ -41,7 +28,7 @@ A breakdown on a highway at night is stressful and unsafe, and finding a trustwo
 
 ## Screens
 
-> These are **UI mockups** of the app's screens (dark theme, crimson accent), generated from the design the code implements. Replace them with real screenshots once you run the app.
+> These are **UI mockups** of the app's screens
 
 <table>
   <tr>
@@ -61,53 +48,51 @@ A breakdown on a highway at night is stressful and unsafe, and finding a trustwo
   </tr>
 </table>
 
-## Features
+## Key Features
 
 ### Customer
 
 | Feature | Details |
 |---|---|
-| Account | Register and log in with email and password, profile screen, sign out |
-| Vehicles | Save cars with model, license plate, insurance and registration info |
-| Request assistance | Towing, flat tire, battery jump-start, fuel delivery, lockout help, engine problem, accident |
-| Location | Detected by GPS, or pick it by tapping the OpenStreetMap map |
-| Request details | Severity (low, medium, high), description, optional vehicle, estimated price |
-| Live tracking | The provider's position on the map, distance to you and estimated arrival time |
-| Communication | In-app chat and one-tap call to the provider |
-| Cancel | Cancel while the request is pending, accepted or on the way |
-| Payment | Cash or wallet/Visa (simulated, see [limitations](#known-limitations)) |
-| Rating | 1-5 stars and written feedback, which updates the provider's average rating |
+| Account Management| Register and log in securely |
+| Vehicle Management | Add and manage vehicle information |
+| Service Requests |  Request roadside assistance based on the type of problem |
+| Location Selection | Use GPS or select a location on the map |
+| Request details | Provide a description, severity level, and estimated service price |
+| Nearby Assistance | Connect with available providers near the customer's location |
+| Live tracking | Follow the provider's location and estimated arrival time |
+| Communication | Chat with or call the assigned provider |
+| Request Management | Track or cancel requests |
+| Payments | Choose between available payment options. Payment processing is simulated in the current version |
+| Rating | Rate the service after completion |
 | Emergency | Emergency numbers with one-tap call, plus an accident report that is sent to providers |
 | Car care guide | Which fluids to check (oil, coolant, brake, power steering, washer, clutch), what to look for and warning signs |
+| Additional Information | Access car care guidance and Egyptian emergency contact numbers  |
 
 ### Service provider
 
-| Feature | Details |
 |---|---|
-| Verification | New provider accounts must be verified by an administrator before they can accept requests |
-| Availability | Available / offline switch |
-| Nearby requests | Open requests within 50 km, nearest first, with distance and price |
-| Accept | First provider to accept gets the job (atomic Firestore transaction) |
-| Job progress | Accepted, on my way, arrived, completed |
-| Live location | GPS position is shared with the customer while the job is active |
-| Communication | Chat with and call the customer |
-| Reputation | Average rating and number of ratings on the profile |
+| Manage provider information and availability |
+| View nearby service requests within a 50 km range |
+| Accept an available request |
+| Update job status throughout the service |
 
 ### Administrator
 
 | Feature | Details |
 |---|---|
-| Provider verification | List of providers waiting for approval, verify with one tap |
+| Review and verify service providers |
+| Manage provider verification status |
 
 ## How a request works
 
 ```mermaid
 stateDiagram-v2
-    [*] --> pending: customer sends request
-    pending --> accepted: a verified provider accepts
-    pending --> cancelled: customer cancels
-    accepted --> onTheWay: provider starts driving
-    accepted --> cancelled: customer cancels
+    [*] --> Customer creates a request: Selects a service, describes the problem, and shares their location
+    pending --> Nearby providers receive the request: Available providers can view relevant requests within the supported search radius.
+    pending --> A provider accepts the request: The first provider to successfully accept the request is assigned to it
+    accepted --> Customer tracks the service: The customer can follow the provider's location and communicate through chat or phone
+    accepted --> Service is completed:  The request is updated, and the customer can submit a rating
     onTheWay --> arrived: provider reaches the customer
     onTheWay --> cancelled: customer cancels
     arrived --> completed: provider finishes the job
