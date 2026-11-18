@@ -136,8 +136,7 @@ class _HomeTab extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         FilledButton.icon(
-          style: FilledButton.styleFrom(
-              backgroundColor: Colors.red, padding: const EdgeInsets.all(16)),
+          style: FilledButton.styleFrom(padding: const EdgeInsets.all(16)),
           onPressed: () => Navigator.push(context,
               MaterialPageRoute(builder: (_) => const EmergencyScreen())),
           icon: const Icon(Icons.car_crash),

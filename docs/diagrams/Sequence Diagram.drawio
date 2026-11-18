@@ -1,0 +1,238 @@
+<mxfile host="Electron" modified="2024-02-06T08:42:49.340Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="pOoODi7hktd2-BK8fSuk" version="23.0.2" type="device">
+  <diagram name="Page-1" id="35d62TOrWrXgPdXiXq1Z">
+    <mxGraphModel dx="1104" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" target="T53JU1LOZbXzVpAd9gEX-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="170" />
+              <mxPoint x="170" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" target="T53JU1LOZbXzVpAd9gEX-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="270" />
+              <mxPoint x="120" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" target="T53JU1LOZbXzVpAd9gEX-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="310" />
+              <mxPoint x="360" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" target="T53JU1LOZbXzVpAd9gEX-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="820" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="820" />
+              <mxPoint x="430" y="821" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" target="T53JU1LOZbXzVpAd9gEX-91" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="910" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="730" y="870" />
+              <mxPoint x="730" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-24" value="AutoAid Service App&lt;br&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="190" y="25" width="100" height="885" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-25" target="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="120" />
+              <mxPoint x="150" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-25" target="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160" y="460" />
+              <mxPoint x="160" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-25" target="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="570" />
+              <mxPoint x="170" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-25" target="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="620" />
+              <mxPoint x="170" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-25" target="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160" y="210" />
+              <mxPoint x="160" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="769.5" y="660" as="targetPoint" />
+            <mxPoint x="250" y="650" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="350" y="660" />
+              <mxPoint x="350" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-25" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="75" y="25" width="20" height="885" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-26" target="T53JU1LOZbXzVpAd9gEX-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="370" />
+              <mxPoint x="470" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-26" target="T53JU1LOZbXzVpAd9gEX-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="420" />
+              <mxPoint x="240" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-26" target="T53JU1LOZbXzVpAd9gEX-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="530" />
+              <mxPoint x="170" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-26" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="390" y="25" width="20" height="885" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="targetPoint" />
+            <mxPoint x="590" y="400" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="440.5" y="400" />
+              <mxPoint x="440.5" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="T53JU1LOZbXzVpAd9gEX-27" target="T53JU1LOZbXzVpAd9gEX-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="247.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="490" />
+              <mxPoint x="490" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-27" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="580" y="25" width="20" height="895" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-28" value="AutoAid User&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="45" y="60" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-29" value="Service Providers" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="530" y="60" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-30" value="app administrators" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="350" y="60" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-35" value="Request Assistance" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="100" y="90" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-39" value="Display Assistance Form" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="90" y="140" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-43" value="Confirmation Message" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="95" y="250" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-45" value="Receive Assistance Request" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="240" y="290" width="190" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-49" value="identify the nearest available service provider" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="410" y="330" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-51" value="Accept Assistance Request" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="420" y="375" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-53" value="Service Provider Information" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="80" y="385" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-56" value="Communication with Service Provider" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="95" y="420" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-58" value="Service Status Updates" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="420" y="465" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-60" value="Service Updates" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="105" y="505" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-62" value="Feedback and Ratings" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="95" y="550" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-64" value="Payment Processing" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="100" y="600" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-66" value="Provide Assistance Details" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="85" y="180" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" target="T53JU1LOZbXzVpAd9gEX-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="720" as="targetPoint" />
+            <mxPoint x="769.5" y="720" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="431" y="720" />
+              <mxPoint x="431" y="721" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-85" value="Payment Request" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="610" y="630" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-87" value="Payment Confirmation" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="105" y="690" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-89" value="Payment Confirmation" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="435" y="800" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-90" value="&amp;nbsp;Payment Gateway Providersext" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;size=35;" parent="1" vertex="1">
+          <mxGeometry x="710" y="25" width="120" height="895" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-91" value="Regulatory Authorities" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeColor=default;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="850" y="25" width="100" height="895" as="geometry" />
+        </mxCell>
+        <mxCell id="T53JU1LOZbXzVpAd9gEX-93" value="Compliance Reporting" style="text;whiteSpace=wrap;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="770" y="840" width="150" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

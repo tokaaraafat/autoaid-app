@@ -39,6 +39,23 @@ class AutoAidApp extends StatelessWidget {
         title: 'AutoAid',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.dark(),
+        // On wide screens (desktop browser) keep a phone-sized column.
+        builder: (context, child) => ColoredBox(
+          color: AppColors.background,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 480),
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  border: Border.symmetric(
+                    vertical: BorderSide(color: AppColors.surfaceHigh),
+                  ),
+                ),
+                child: child,
+              ),
+            ),
+          ),
+        ),
         home: const AuthGate(),
       ),
     );

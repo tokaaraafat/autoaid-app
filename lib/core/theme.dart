@@ -23,7 +23,12 @@ class AppTheme {
       secondary: AppColors.teal,
       surface: AppColors.surface,
       onSurface: Colors.white,
+      surfaceTint: Colors.transparent,
+      secondaryContainer: AppColors.crimsonDark,
+      onSecondaryContainer: Colors.white,
       surfaceContainerLow: AppColors.surface,
+      surfaceContainer: AppColors.surface,
+      surfaceContainerHigh: AppColors.surfaceHigh,
       surfaceContainerHighest: AppColors.surfaceHigh,
     );
 

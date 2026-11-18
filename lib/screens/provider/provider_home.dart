@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
@@ -50,12 +50,12 @@ class _ProviderHomeState extends State<ProviderHome> {
       body: Column(
         children: [
           if (!me.verified)
-            MaterialBanner(
-              content: const Text(
+            const MaterialBanner(
+              content: Text(
                   'Your account is waiting for administrator verification. '
                   'You can browse requests but not accept them yet.'),
-              leading: const Icon(Icons.hourglass_top),
-              actions: const [SizedBox.shrink()],
+              leading: Icon(Icons.hourglass_top),
+              actions: [SizedBox.shrink()],
             ),
           Expanded(child: pages[_index]),
         ],

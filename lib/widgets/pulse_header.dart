@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// App logo: a heart with an ECG line behind it ("a doctor for your car"),
 /// drawn in code so no image assets are needed.
